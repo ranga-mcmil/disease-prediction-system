@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+
+<div class="row">
+    <!-- Notifications Widgets -->
+    <div class="col-xl-12 col-md-12 col-sm-6">
+      <a href="{% url 'predictions:reports' %}">
+        <div class="ms-card card-gradient-custom ms-widget ms-infographics-widget ms-p-relative">
+          <div class="ms-card-body media">
+            <div class="media-body">
+              <h6>Reports</h6>
+              <p class="ms-card-change"> {{reports_count}}</p>
+            </div>
+          </div>
+          <i class="fas fa-stethoscope ms-icon-mr"></i>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-xl-12 col-md-12 col-sm-6">
+      {% include 'messages.html' %}
+    </div>
+
+    {% if args %}
+      <div class="col-md-12">
+        <div class="ms-panel ms-widget ms-identifier-widget bg-info">
+          <div class="ms-panel-header header-mini">
+            <h6>Info</h6>
+          </div>
+          <div class="ms-panel-body">
+            <div class="text-center">
+              <i class="flaticon-information"></i>
+              <p>Symptoms: </p>
+              <p>Prediction: </p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

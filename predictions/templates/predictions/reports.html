@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0">
+                <li class="breadcrumb-item"><a href="{% url 'predictions:home' %}"><i class="material-icons">home</i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Reports List</li>
+            </ol>
+        </nav>
+        <div class="ms-panel">
+            <div class="ms-panel-header ms-panel-custome">
+                <h6>Reports List</h6>
+            </div>
+
+            <div class="ms-panel-body">
+                <div class="table-responsive">
+                    <table id="data-table-2" class="table table-striped thead-primary w-100 dataTable no-footer"
+                        role="grid" aria-describedby="data-table-2_info" style="width: 720px;">
+                        <thead>
+                            <tr role="row">
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                     style="width: 37px;">Symptom 1</th>
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                                    aria-label="Address: activate to sort column " style="width: 51px;">Symptom 2
+                                </th>
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                                    aria-label="Disease: activate to sort column ascending" style="width: 49px;">Symptom 3
+                                </th>
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                                    aria-label="Age: activate to sort column ascending" style="width: 25px;">Symptom 4</th>
+                                
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                                    aria-label="Email: activate to sort column ascending" style="width: 182px;">Symptom 5
+                                </th>
+                                <th class="" tabindex="0" aria-controls="data-table-2" rowspan="1" colspan="1"
+                                    aria-label="Action: activate to sort column ascending" style="width: 42px;">Results
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for prediction in predictions %}
+                                <tr role="row" class="odd">
+                                    <td class="sorting_1">{{prediction.symptom1}}</td>
+                                    <td>{{prediction.symptom2}}</td>
+                                    <td>{{prediction.symptom3}}</td>
+                                    <td>{{prediction.symptom4}}</td>
+                                    <td>{{prediction.symptom5}}</td>
+                                    <td>{{prediction.result}}</td>
+                                </tr>
+                            {% endfor %}
+                            
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

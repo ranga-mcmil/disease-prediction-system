@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>App Name</title>
+  <!-- Iconic Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/font-awesome/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/flat-icons/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/cryptocoins/cryptocoins.css' %}">
+  <link rel="stylesheet" href="{% static 'vendors/iconic-fonts/cryptocoins/cryptocoins-colors.css' %}">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.min.css' %}">
+
+  <!-- Page Specific CSS (Slick Slider.css) -->
+  <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+
+  <!-- medjestic styles -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+  <!-- Page Specific CSS (Morris Charts.css) -->
+  <link rel="stylesheet" href="{% static 'assets/css/morris.css' %}">
+
+</head>
+
+<body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
+
+  <!-- Preloader -->
+  <div id="preloader-wrap">
+    <div class="spinner spinner-8">
+      <div class="ms-circle1 ms-child"></div>
+      <div class="ms-circle2 ms-child"></div>
+      <div class="ms-circle3 ms-child"></div>
+      <div class="ms-circle4 ms-child"></div>
+      <div class="ms-circle5 ms-child"></div>
+      <div class="ms-circle6 ms-child"></div>
+      <div class="ms-circle7 ms-child"></div>
+      <div class="ms-circle8 ms-child"></div>
+      <div class="ms-circle9 ms-child"></div>
+      <div class="ms-circle10 ms-child"></div>
+      <div class="ms-circle11 ms-child"></div>
+      <div class="ms-circle12 ms-child"></div>
+    </div>
+  </div>
+  <!-- Overlays -->
+  <div class="ms-aside-overlay ms-overlay-left ms-toggler" data-target="#ms-side-nav" data-toggle="slideLeft"></div>
+  <div class="ms-aside-overlay ms-overlay-right ms-toggler" data-target="#ms-recent-activity" data-toggle="slideRight">
+  </div>
+  <!-- Sidebar Navigation Left -->
+  <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+    <!-- Logo -->
+    <div class="logo-sn ms-d-block-lg">
+      <a class="pl-0 ml-0 text-center" href=""> <h1 style="color: whitesmoke;">App Name</h1>
+      </a>
+      <h5 class="text-center text-white mt-2"></h5>
+      <h6 class="text-center text-white mb-3"></h6>
+    </div>
+    <!-- Navigation -->
+    <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
+      <!-- Dashboard -->
+      <li class="menu-item">
+        <a href="{% url 'predictions:home' %}" class="" aria-expanded="false"
+          aria-controls="dashboard">
+          <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
+        </a>
+      </li>
+      <!-- /Dashboard -->
+
+      <li class="menu-item">
+        <a href="{% url 'accounts:logout' %}">
+          <span><i class="fas fa-lock"></i>Logout
+        </a>
+        
+      </li>
+
+
+
+    </ul>
+  </aside>
+  <!-- Sidebar Right -->
+
+  <!-- Main Content -->
+  <main class="body-content">
+    <!-- Navigation Bar -->
+    <nav class="navbar ms-navbar">
+      <div class="ms-aside-toggler ms-toggler pl-0" data-target="#ms-side-nav" data-toggle="slideLeft">
+        <span class="ms-toggler-bar bg-white"></span>
+        <span class="ms-toggler-bar bg-white"></span>
+        <span class="ms-toggler-bar bg-white"></span>
+      </div>
+      <div class="logo-sn logo-sm ms-d-block-sm">
+        <a class="pl-0 ml-0 text-center navbar-brand mr-0" style="color: whitesmoke;" href="{% url 'predictions:home' %}">App name </a>
+      </div>
+      <ul class="ms-nav-list ms-inline mb-0" id="ms-nav-options">
+        <li class="ms-nav-item  ms-d-none">
+          <a href="#mymodal" class="text-white" data-toggle="modal"><i class="flaticon-spreadsheet mr-2"></i> Submit Symptoms</a>
+        </li>
+
+        <li class="ms-nav-item ms-nav-user dropdown">
+          <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img
+              class="ms-user-img ms-img-round float-right" src="{{user.pic.url}}" alt="people"> </a>
+          <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
+            <li class="dropdown-menu-header">
+              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">{{user.get_full_name}}</span></h6>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li class="ms-dropdown-list">
+              <a class="media fs-14 p-2" href=""> <span><i
+                    class="flaticon-user mr-2"></i> Change Password</span> </a>
+            </li>
+            <li class="dropdown-divider"></li>
+
+            <li class="dropdown-menu-footer">
+              <a class="media fs-14 p-2" href="{% url 'accounts:logout' %}"> <span><i
+                    class="flaticon-shut-down mr-2"></i> Logout</span> </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
+        <span class="ms-toggler-bar bg-white"></span>
+        <span class="ms-toggler-bar bg-white"></span>
+        <span class="ms-toggler-bar bg-white"></span>
+      </div>
+    </nav>
+    <!-- Body Content Wrapper -->
+    <div class="ms-content-wrapper">
+      
+      {% block content %}
+      {% endblock %}
+
+    </div>
+  </main>
+  <!-- MODALS -->  
+
+  <!-- Modal -->
+  <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog ms-modal-dialog-width">
+      <div class="modal-content ms-modal-content-width">
+        <div class="modal-header  ms-modal-header-radius-0">
+          <h4 class="modal-title text-white">Symptoms</h4>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-hidden="true">x</button>
+
+        </div>
+        <div class="modal-body p-0 text-left">
+          <div class="col-xl-12 col-md-12">
+            <div class="ms-panel ms-panel-bshadow-none">
+              <div class="ms-panel-header">
+                <h6>Patient Information</h6>
+              </div>
+              <div class="ms-panel-body">
+                <form class="needs-validation" action="{% url 'predictions:send_symptoms' %}" method="post">
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationCustom01">Symptom 1</label>
+                      <div class="input-group">
+                        {{prediction_form.symptom1}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationCustom01">Symptom 2</label>
+                      <div class="input-group">
+                        {{prediction_form.symptom2}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationCustom01">Symptom 3</label>
+                      <div class="input-group">
+                        {{prediction_form.symptom3}}
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationCustom01">Symptom 4</label>
+                      <div class="input-group">
+                        {{prediction_form.symptom4}}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationCustom01">Symptom 5</label>
+                      <div class="input-group">
+                        {{prediction_form.symptom5}}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  {% csrf_token %}
+                  <button class="btn btn-primary mt-4 d-inline" type="submit">Predict</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SCRIPTS -->
+  <!-- Global Required Scripts Start -->
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/js/perfect-scrollbar.js' %}"></script>
+  <script src="{% static 'assets/js/jquery-ui.min.js' %}"></script>
+
+
+  <!-- Global Required Scripts End -->
+  <script src="{% static 'assets/js/d3.v3.min.js' %}"></script>
+  <script src="{% static 'assets/js/topojson.v1.min.js' %}"></script>
+  <script src="{% static 'assets/js/datamaps.all.min.js' %}"></script>
+
+  <!-- Page Specific Scripts Start -->
+  <script src="{% static 'assets/js/slick.min.js' %}"></script>
+  <script src="{% static 'assets/js/moment.js' %}"></script>
+  <script src="{% static 'assets/js/jquery.webticker.min.js' %}"></script>
+  <script src="{% static 'assets/js/Chart.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/index-chart.js' %}"></script>
+
+  <!-- Page Specific Scripts Finish -->
+  <script src="{% static 'assets/js/calendar.js' %}"></script>
+
+  <!-- medjestic core JavaScript -->
+  <script src="{% static 'assets/js/framework.js' %}"></script>
+  <!-- Settings -->
+  <script src="{% static 'assets/js/settings.js' %}"></script>
+</body>
+
+
+</html>

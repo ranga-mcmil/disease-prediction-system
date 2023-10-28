@@ -1,0 +1,5 @@
+db.sqlite3
+env/
+/disease_prediction/local_settings.py
+disease_prediction/local_settings.py
+local_settings.py
