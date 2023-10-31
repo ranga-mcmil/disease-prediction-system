@@ -59,7 +59,7 @@
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <a class="pl-0 ml-0 text-center" href=""> <h1 style="color: whitesmoke;">App Name</h1>
+      <a class="pl-0 ml-0 text-center" href=""> <h1 style="color: whitesmoke;">med</h1>
       </a>
       <h5 class="text-center text-white mt-2"></h5>
       <h6 class="text-center text-white mb-3"></h6>
@@ -105,26 +105,11 @@
           <a href="#mymodal" class="text-white" data-toggle="modal"><i class="flaticon-spreadsheet mr-2"></i> Submit Symptoms</a>
         </li>
 
-        <li class="ms-nav-item ms-nav-user dropdown">
-          <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img
-              class="ms-user-img ms-img-round float-right" src="{{user.pic.url}}" alt="people"> </a>
-          <ul class="dropdown-menu dropdown-menu-right user-dropdown" aria-labelledby="userDropdown">
-            <li class="dropdown-menu-header">
-              <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">{{user.get_full_name}}</span></h6>
-            </li>
-            <li class="dropdown-divider"></li>
-            <li class="ms-dropdown-list">
-              <a class="media fs-14 p-2" href=""> <span><i
-                    class="flaticon-user mr-2"></i> Change Password</span> </a>
-            </li>
-            <li class="dropdown-divider"></li>
-
-            <li class="dropdown-menu-footer">
-              <a class="media fs-14 p-2" href="{% url 'accounts:logout' %}"> <span><i
-                    class="flaticon-shut-down mr-2"></i> Logout</span> </a>
-            </li>
-          </ul>
+        <li class="ms-nav-item  ms-d-none">
+          <a href="" class="text-white" data-toggle="modal"><i class="flaticon-user mr-2"></i> {{user.get_full_name}}</a>
         </li>
+
+        
       </ul>
       <div class="ms-toggler ms-d-block-sm pr-0 ms-nav-toggler" data-toggle="slideDown" data-target="#ms-nav-options">
         <span class="ms-toggler-bar bg-white"></span>
